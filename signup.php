@@ -85,7 +85,7 @@ if(isset($error_message)){
 
 <!-- custom js -->
 
-<script src="/js/login.js"></script>
+<script src="/js/signup.js"></script>
 <script src="/js/validator.js"></script>
 </body>
 </html>
