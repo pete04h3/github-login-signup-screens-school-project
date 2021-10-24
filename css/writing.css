@@ -1,0 +1,17 @@
+
+code{
+   margin-top: 2rem;
+  
+}
+
+#text {
+z-index: 9999999;
+color: snow;
+white-space: nowrap;
+overflow: hidden;
+width: 300px;
+text-align: center;
+margin: 0 auto;
+padding-right: 10rem;
+
+}
