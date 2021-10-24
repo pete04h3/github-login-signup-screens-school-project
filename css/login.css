@@ -151,6 +151,11 @@
     vertical-align: baseline;
     transition: all 0.2s linear;
   }
+
+  .validate_error {
+    background: rgb(91 53 53 / 57%) !important;
+    border: 1px solid #ec4846 !important;
+  }
   
   .form-style {
     position: relative;

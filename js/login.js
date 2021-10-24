@@ -1,3 +1,5 @@
+const fname = document.getElementById("logfname");
+const lname = document.getElementById("loglname");
 const email = document.getElementById("logemail");
 const password = document.getElementById("logpass");
 const login = document.querySelector(".btn");
@@ -15,12 +17,54 @@ const esearch = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 const psearch = /[a-z]{8,32}/g;
 
 login.addEventListener('click', (e) => {
-  if(!password.value.match(psearch)){
+
+  if(!password.value.match(psearch) && !email.value.match(esearch)){
+    password.focus();
+    e.preventDefault();
+     password.style.borderColor = "#ec4846";
+     password.style.backgroundColor = "rgb(91 53 53 / 57%)";
+     ptxt.style.color = "#ec4846";
+     perror.innerText = " - Password should be between 8 and 32 characters";
+ 
+     email.focus();
+     e.preventDefault();
+     email.style.borderColor = "#ec4846";
+     email.style.backgroundColor = "rgb(91 53 53 / 57%)";
+     etxt.style.color = "#ec4846";
+     Eerror.innerText = " - Please provide an email";
+     
+   }
+
+
+  if(!password.value.match(psearch) && !email.value.match(esearch) && !fname.value.match(psearch) && !lname.value.match(psearch)){
    password.focus();
    e.preventDefault();
     password.style.borderColor = "#ec4846";
+    password.style.backgroundColor = "rgb(91 53 53 / 57%)";
     ptxt.style.color = "#ec4846";
     perror.innerText = " - Password should be between 8 and 32 characters";
+
+    email.focus();
+    e.preventDefault();
+    email.style.borderColor = "#ec4846";
+    email.style.backgroundColor = "rgb(91 53 53 / 57%)";
+    etxt.style.color = "#ec4846";
+    Eerror.innerText = " - Please provide an email";
+
+    fname.focus();
+    e.preventDefault();
+    fname.style.borderColor = "#ec4846";
+    fname.style.backgroundColor = "rgb(91 53 53 / 57%)";
+    fnametxt.style.color = "#ec4846";
+    fnameerror.innerText = " - Please provide a first name";
+
+    lname.focus();
+    e.preventDefault();
+    lname.style.borderColor = "#ec4846";
+    lname.style.backgroundColor = "rgb(91 53 53 / 57%)";
+    lnametxt.style.color = "#ec4846";
+    lnameerror.innerText = " - Please provide a last name";
+    
   }
   else if(email.value === "" || !email.value.match(esearch)){
     email.focus();
@@ -31,6 +75,8 @@ login.addEventListener('click', (e) => {
   }else{
     email.value = "";
     password.value = "";
+    fname.value = "";
+    lname.value = "";
     container.style.animation = "jump .3s linear";
     container.addEventListener('animationend', () => {
       container.style.display = "none";
@@ -43,10 +89,20 @@ login.addEventListener('click', (e) => {
   setTimeout(() => {
     ptxt.style.color = "#919296";
     etxt.style.color = "#919296";
+    fnametxt.style.color = "#919296";
+    lnametxt.style.color = "#919296";
     perror.innerText = "";
     Eerror.innerText = "";
+    fnameerror.innerText = "";
+    lnameerror.innerText = "";
     email.style.borderColor = "";
     password.style.borderColor = "";
+    fname.style.borderColor = "";
+    lname.style.borderColor = "";
+    fname.style.backgroundColor = "";
+    lname.style.backgroundColor = "";
+    password.style.backgroundColor = "";
+    email.style.backgroundColor = "";
   }, 2500)
 });
 

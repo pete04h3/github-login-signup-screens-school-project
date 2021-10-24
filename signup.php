@@ -18,36 +18,53 @@
     <canvas id="svgBlob"></canvas>
 
 <div class="position">
-  <form class="container">
+  <form action="/signup" method="POST" onsubmit="return validate()" class="container">
     <div class="centering-wrapper">
       <div class="section1 text-center">
         <div class="primary-header">Welcome back!</div>
         <div class="secondary-header">We're so excited to see you again!</div>
         <div class="input-position">
+
+        <?php
+
+if(isset($error_message)){
+?>
+
+
+<div class="error-msg">
+<strong>Error:</strong> <code><?= urldecode($error_message) ?></code>
+</div>
+  <?php
+}
+
+?>
+
+       <!--  <form action="/signup" method="POST" onsubmit="return validate()"> -->
             <div class="form-group">
                 <h5 class="input-placeholder" id="fname-txt">First name<span class="error-message" id="fname-error"></span></h5>
-            <input type="text" required="true" name="logfname" class="form-style" id="logfname" autocomplete="off" style="margin-bottom: 20px;">
+            <input  onclick="clear_validate_error()" type="text" name="user_name" data-validate="str" data-min="2" data-max="50" class="form-style" id="logfname" autocomplete="off" style="margin-bottom: 20px;">
             <i class="input-icon uil uil-at"></i>
           </div>	
           <div class="form-group">
             <h5 class="input-placeholder" id="lname-txt">Last name<span class="error-message" id="lname-error"></span></h5>
-	    <input type="text" required="true" name="loglname" class="form-style" id="loglname" autocomplete="off" style="margin-bottom: 20px;">
+	    <input onclick="clear_validate_error()" type="text" name="user_last_name" data-validate="str" data-min="2" data-max="50" class="form-style" id="loglname" autocomplete="off" style="margin-bottom: 20px;">
 	    <i class="input-icon uil uil-at"></i>
 	  </div>	
 	  <div class="form-group">
             <h5 class="input-placeholder" id="email-txt">Email<span class="error-message" id="email-error"></span></h5>
-	    <input type="email" required="true" name="logemail" class="form-style" id="logemail" autocomplete="off" style="margin-bottom: 20px;">
+	    <input onclick="clear_validate_error()" type="text" name="user_email" data-validate="email" data-min="" data-max="" class="form-style" id="logemail" autocomplete="off" style="margin-bottom: 20px;">
 	    <i class="input-icon uil uil-at"></i>
 	  </div>	
           <div class="form-group">
             <h5 class="input-placeholder" id="pword-txt">Password<span class="error-message" id="password-error"></span></h5>
-	    <input type="password" required="true" name="logpass" class="form-style" id="logpass" autocomplete="on">
+	    <input onclick="clear_validate_error()" type="password" name="user_password" data-validate="str" data-min="8" data-max="50" class="form-style" id="logpass" autocomplete="on">
 	    <i class="input-icon uil uil-lock-alt"></i>
 	  </div>
         </div>
         <div class="password-container"><a href="/login.php" class="link">Already have an account?</a></div>
           <div class="btn-position">
-          <a href="#" class="btn">signup</a>
+        <!--   <a href="#" class="btn">signup</a> -->
+          <input class="btn" type="submit" value="signup">
         </div>
       </div>
       <div class="horizontalSeparator"></div>
@@ -69,5 +86,6 @@
 <!-- custom js -->
 
 <script src="/js/login.js"></script>
+<script src="/js/validator.js"></script>
 </body>
 </html>
